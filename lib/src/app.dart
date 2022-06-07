@@ -8,12 +8,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final goRouter = GoRouter(routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const ProductsListScreen(),
-      )
-    ]);
+    final goRouter = GoRouter(
+      initialLocation: '/',
+      debugLogDiagnostics: true,
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const ProductsListScreen(),
+        )
+      ],
+    );
     return MaterialApp.router(
       routerDelegate: goRouter.routerDelegate,
       routeInformationParser: goRouter.routeInformationParser,
